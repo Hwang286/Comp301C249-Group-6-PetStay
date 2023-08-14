@@ -1,0 +1,43 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+<!-- Main Content -->
+<main class="container">
+    <div class="container border mt-5 border-1 p-3 login-container w-50">
+      <h1 class="text-center"><%= title %></h1>
+      <% if (messages.length >= 1) { %>
+        <div class="alert alert-danger text-center" role="alert">
+          <%= messages %>
+        </div>
+      <% } %>
+      <form method="post">
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="username">Username</label>
+          <input type="text" id="username" name="username" class="form-control" required/>
+        </div>      
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="pasword" name="password" class="form-control" required />
+        </div>
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" required/>
+        </div>
+        <!-- Display Name input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="displayName">Display Name</label>
+          <input type="text" id="displayName" name="displayName" class="form-control" required/>
+        </div>        
+        <!-- Submit button -->
+        <div class=""><button type="submit" class="btn btn-primary btn-lg mb-4">Sign up</button></div>
+        <!-- Login link -->
+        <div class="text-center">
+          <p>Already had an account? <a href="/login">Login</a></p>
+        </div>
+      </form>
+    </div>
+</main>
+
+<%- include ../partials/footer.ejs %>

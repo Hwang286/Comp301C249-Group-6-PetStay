@@ -1,0 +1,45 @@
+<!-- This page will show all store information existing in the database -->
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<main class="container p-4">
+
+  <h1 class="text-center mb-3"><%= title %></h1>
+  
+  <a href="/store-list" class="btn btn-outline-success me-2"><i class="fa-solid fa-backward"></i> Back to Store List</a>
+  <!--Container for store cards -->
+    <div class="d-flex flex-row justify-content-center flex-wrap store-container mt-4">
+      <% if (store.length !== 0) { %>
+        <% for( let count = 0; count < store.length; count++ ) { %>
+          <!-- Store card -->
+          <div class="card store-card border border-4 border-success mb-3 p-1" style="width: 18rem;">
+            <img src="/Assets/images/theone_color_logo.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title store-name"><%= store[count].storeName %> </h5>
+              <p class="card-text store-about"><%= store[count].about %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <!-- Link to the specific owner store based on the owner id attribute of store model -->
+                <li class="list-group-item">Owner: <a href="/store-list/owner-store/<%= store[count].ownerId %> "><span class="owner fw-bold"><%= store[count].owner %></span></a></li>
+              
+              <li class="list-group-item">Type: <span class="shop-type"><%= store[count].type %></span></li>
+              <li class="list-group-item">Location: <span class="shop-type"><%= store[count].location %></span></li>
+            </ul>
+            <div class="card-body d-flex text-center justify-content-evenly">
+                <!-- Display only view button when user is not authenticated or not owner -->
+              <% if (store[count].ownerId.toString() === userId || username == "admin") { %>
+                <a href="/store-list/detail/<%= store[count]._id %>" class="btn btn-info">View</a>
+                <a href="/store-list/edit/<%= store[count]._id %>" class="btn btn-success">Edit</a>
+                <a href="/store-list/delete/<%= store[count]._id %>" class="btn btn-danger btn-delete-store">Delete</a>
+              <% } else{ %>
+                <a href="/store-list/detail/<%= store[count]._id %>" class="btn btn-info">View</a>
+              <% } %>            
+            </div>
+          </div>
+          <!-- End Store card -->   
+        <% } %>
+      <% } %>
+    </div>   
+</main>
+
+<%- include ../partials/footer.ejs %>

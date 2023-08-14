@@ -1,0 +1,48 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+<main class="container d-flex justify-content-center flex-column align-items-center p-4">
+  
+  <div class="row justify-content-center mt-2 border border-4 p-3 bg-light form-container" style="width: 60%;">
+    <div class="col-md-8">      
+      <form method="post">
+        <h1 class="text-center mb-3"><%= title %></h1>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="petCareTakerName" class="form-label">Pet CareTaker: </label>
+            <input type="text" class="form-control" id="petCareTakerName" name="petCareTakerName" placeholder="" readonly required>
+          </div>
+          <div class="col-md-6">
+            <label for="petName" class="form-label">Pet's Name</label>
+            <input type="text" class="form-control" id="petName" name="petName" placeholder="" readonly required>
+          </div>
+          <div class="col-sm-12">
+            <label for="about" class="form-label">Review: </label>
+            <textarea class="form-control" id="about" name="about" placeholder="" cols="30" rows="5" readonly required></textarea>            
+          </div>
+          
+          <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+          </div>
+          
+
+          <hr class="my-4">
+          <div>
+            <input class="btn btn-success btn-lg" type="submit" value="Submit">
+          </div>
+      </form>
+    </div>
+
+  </div>
+
+</main>
+<%- include partials/footer.ejs %>

@@ -1,0 +1,47 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<main class="container d-flex justify-content-center flex-column align-items-center p-4">
+  
+  <div class="row justify-content-center mt-2 border border-4 p-3 bg-light form-container" style="width: 60%;">
+    <div class="col-md-8">      
+      <form method="post">
+        <h1 class="text-center mb-3"><%= title %></h1>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="productName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="productName" name="productName" value="<%- product.productName %>" placeholder="" required>
+          </div>
+          <div class="col-md-6">
+            <label for="type" class="form-label">Type</label>
+            <input type="text" class="form-control" id="type" name="type" value="<%= product.type %>" placeholder="" required>
+          </div>
+          <div class="col-sm-12">
+            <label for="about" class="form-label">About</label>
+            <textarea class="form-control" id="about" name="about" placeholder="" cols="30" rows="5" required><%= product.about %> </textarea>            
+          </div>
+          <div class="col-sm-12">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" value="<%= product.price %>" min="0" placeholder="" required>
+          </div>
+
+          <div class="col-sm-12">
+            <label for="condition" class="form-label">Condition</label>
+            <input type="text" class="form-control" id="condition" name="condition" value="<%= product.condition %>" placeholder="" required>
+          </div>
+
+          <hr class="my-4">
+          <div class="container d-flex justify-content-around btn-bottom-container">
+            <input class="btn btn-success btn-lg w-25" type="submit" value="Update">
+            <a href="javascript:history.back()" class="btn btn-warning btn-lg w-25">
+              Cancel
+            </a>
+          </div>
+      </form>
+    </div>
+
+  </div>
+
+</main>
+
+<%- include ../partials/footer.ejs %>

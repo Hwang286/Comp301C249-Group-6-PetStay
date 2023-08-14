@@ -1,0 +1,33 @@
+<!-- This page will show all product information existing in the database -->
+<div class="container p-4" style="min-height: 50vh;">
+  <!--Container for product cards -->
+    <div class="d-flex flex-row justify-content-center flex-wrap product-container mt-4">
+      <% if (product.length !== 0) { %>
+        <% for( let count = 0; count < product.length; count++ ) { %>
+          <!-- Product card -->
+        <div class="card product-card border border-4 border-warning mb-3 p-1" style="width: 18rem;">
+            <img src="/Assets/images/theone_color_logo.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title product-name"><%= product[count].productName %> </h5>
+              <p class="card-text product-about"><%=product[count].about %></p>
+            </div>
+            <ul class="list-group list-group-flush">              
+                <li class="list-group-item">Price: $<%= product[count].price %></li>
+                <li class="list-group-item">Condition: <%= product[count].condition %> </li>
+            </ul>
+            <% if (store.ownerId.toString() === userId || username === "admin") { %>
+              <div class="card-body d-flex text-center justify-content-evenly">
+                <a href="/product-list/edit/<%= product[count]._id %>" class="btn btn-success">Edit</a>
+                <a href="/product-list/delete/<%= product[count]._id %>" class="btn btn-danger btn-delete-product">Delete</a>
+              </div>
+            <% } else { %>
+              <div class="card-body d-flex text-center justify-content-evenly">
+                <a href="#" class="btn btn-info">Buy</a>
+              </div>
+            <% } %>
+        </div>
+          <!-- End Product card -->   
+        <% } %>
+      <% } %>
+    </div>   
+</div>

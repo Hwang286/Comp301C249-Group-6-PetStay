@@ -1,0 +1,34 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+<!-- Main Content -->
+<main class="container">
+    <div class="container border mt-5 border-1 p-3 login-container w-50">
+      <h1 class="text-center"><%= title %></h1>
+      <% if (messages.length >= 1) { %>
+        <div class="alert alert-danger text-center" role="alert">
+          <%= messages %>
+        </div>
+      <% } %>
+      <form method="post">
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="username">Username</label>
+          <input type="text" id="username" name="username" class="form-control" required/>
+        </div>      
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="pasword" name="password" class="form-control" required />
+        </div>      
+        <!-- Submit button -->
+        <div class=""><button type="submit" class="btn btn-success btn-lg mb-4">Sign in</button></div>
+        <!-- Register link -->
+        <div class="text-center">
+          <p>Not a member? <a href="/signup">Register</a></p>
+          <p>Sign in with google <a href="/gg">Google</a></p>
+        </div>
+      </form>
+    </div>
+</main>
+
+<%- include ../partials/footer.ejs %>

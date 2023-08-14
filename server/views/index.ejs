@@ -1,0 +1,67 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+<main class="main" >
+
+  <!-- We need a jumbotron or heroes here -->
+  <div class="container">
+    <div class="introduction">
+      <p>Book trusted sitters and dog walkers for your pet easier with our help.</p>
+    </div>
+      <div class="search-select">
+      <!-- <p>I'm looking service for my:  </p>
+        <form class="select-type">
+          <input type="checkbox" id="cat" name="cat" value="cat">
+          <label for="cat">Cat</label>
+          <input type="checkbox" id="dog" name="dog" value="dog">
+          <label for="dog">Dog</label>
+        </form> -->
+        <p>I am looking for service:  </p>
+        <form class="detailed-select">
+          <!-- <button type="button"><i class="fa-solid fa-house"></i><br> House Sitting</button>
+          <button type="button"><i class="fa-solid fa-suitcase"></i><br> Boarding</button>
+          <button type="button"><i class="fa-solid fa-door-open"></i><br> Drop-In Visits</button>
+          <button type="button"><i class="fa-solid fa-paw"></i><br> Walking</button>
+          <div style="display:inline-flex; flex-direction: row;">
+          <label>Location:  </label>
+          <input type="text" id="location" name="location">
+          <label>From:  </label><br>
+          <input type="date" id="from-date" name="from-date">
+          <label>To:  </label>
+          <input type="date" id="to-date" name="to-date">
+          </div>
+          -->
+        
+        <div class="grid-container-1">
+          <div class="grid-item"><button type="button"><i class="fa-solid fa-house"></i><br> House Sitting</button></div>
+          <div class="grid-item"><button type="button"><i class="fa-solid fa-suitcase"></i><br> Boarding</button></div>
+          <div class="grid-item"><button type="button"><i class="fa-solid fa-door-open"></i><br> Drop-In Visits</button></div>
+          <div class="grid-item"><button type="button"><i class="fa-solid fa-paw"></i><br> Walking</button></div>
+        </div>
+        
+        <div class="grid-container-2">
+          <div class="grid-item">
+            <label>Location:  </label><br>
+            <input type="text" id="location" name="location">
+          </div>
+          <div class="grid-item">
+            <label>From:  </label><br>
+            <input type="date" id="from-date" name="from-date">
+          </div>
+          <div class="grid-item">
+            <label>To:  </label><br>
+            <input type="date" id="to-date" name="to-date"></label>
+          </div>
+        </div>
+        <div class="submit">
+        <button type="submit" style="width: 300px; font-size: 25px; text-align: center;"> Search</button>
+        </div>
+      </form>
+      </div> 
+      
+    
+  </div>
+
+</main>
+
+<%- include partials/footer.ejs %>

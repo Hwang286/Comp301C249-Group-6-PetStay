@@ -1,0 +1,37 @@
+<!-- This page will show the products of store -->
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<main class="container p-4">
+  <h1 class="text-center"><%= title %> </h1>
+  <!-- Button for statistic view -->
+  <div class="container d-flex flex-row">
+    <% if (store.ownerId.toString() === userId || username === "admin") { %>
+      <a href="/product-list/add/<%= store._id %>" class="btn btn-outline-success me-2 mt-1"><i class="fa-solid fa-plus"></i> Add New Product</a>
+    <% } %>
+  </div>
+  <!-- Product list -->
+  <%- include ../products/list.ejs %> 
+  <!-- Review and rate -->
+  <h3 class="text sub-title">Reviews</h3>
+  <div class="container d-flex align-items-center justify-content-center review-container flex-column">
+    <!-- Review form -->
+    <% if (store.ownerId.toString() !== userId || username === "admin") { %>
+      <form method="post" class="row container border border-1 p-4 bg-body" style="width: 70%;">
+        <div class="col">
+          <input type="text" class="form-control" name="review" placeholder="Enter your review here..." aria-label="Review" required>
+        </div>
+        <div class="col-md-2">
+          <input type="number" min="0" max="10" name="rate" class="form-control" placeholder="Rate" aria-label="Rate" required>
+        </div>
+        <div class="col-md-2">
+          <input type="submit" class="form-control btn btn-outline-success" value="Review" aria-label="Review">
+        </div>
+      </form>
+    <% } %>
+    <!-- Review list -->
+    <% include ../reviews/list.ejs %> 
+  </div>  
+</main>
+
+<%- include ../partials/footer.ejs %>

@@ -1,0 +1,19 @@
+<!-- Review items -->
+<% for( let count = 0; count < review.length; count++ ) { %>
+    <div class="container d-flex flex-row justify-content-between border border-1 p-4 bg-body review-item" style="width:50%">
+        <div>
+          <span class="text fw-bold text-info"><%= review[count].reviewerName %></span> <span class="text fst-italic"><%= review[count].updatedAt.toLocaleDateString("en-US") %></span>
+          <div>
+            <%= review[count].review %>
+          </div>
+        </div>
+        <div>
+          <% if (review[count].rate > 5) { %>
+            <h3><span class="text text-success"><%= review[count].rate %></span>/10</h3>
+            <% } else { %>
+            <h3><span class="text text-danger"><%= review[count].rate %></span>/10</h3>
+          <% } %>
+            
+        </div>
+    </div>
+<% } %>

@@ -1,0 +1,40 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+
+<div class="container" style="width: 50vw;">
+    
+    <h1 class="title">Add Payment Method</h1>
+    <form action="/submit_payment" method="POST">
+        <div class="form-group">
+            <label class="label" for="card_number">Card Number:</label>
+            <input class="input" type="text" id="card_number" name="card_number" required>
+        </div>
+
+        <div class="form-group">
+            <label class="label" for="expiration_date">Expiration Date:</label>
+            <input class="input" type="text" id="expiration_date" name="expiration_date" placeholder="MM/YY" required>
+        </div>
+
+        <div class="form-group">
+            <label class="label" for="cvv">CVV:</label>
+            <input class="input" type="text" id="cvv" name="cvv" required>
+        </div>
+
+        <div class="form-group">
+            <label class="label" for="cardholder_name">Cardholder Name:</label>
+            <input class="input" type="text" id="cardholder_name" name="cardholder_name" required>
+        </div>
+
+        <div class="form-group">
+            <label class="label" for="billing_address">Billing Address:</label>
+            <input class="input" type="text" id="billing_address" name="billing_address" required>
+        </div>
+
+        <div id="error_container" class="error"></div>
+        
+        <button class="button" type="submit">Add Payment Method</button>
+    </form>
+    
+</div>
+    <%- include partials/footer.ejs %>
